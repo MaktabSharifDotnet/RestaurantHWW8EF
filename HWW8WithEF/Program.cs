@@ -23,6 +23,7 @@ while (true)
                     switch (foodCategoryEnum)
                     {
                         case FoodCategoryEnum.MainCourse:
+                            ShowListRestuarant();
                             Console.WriteLine("please enter restaurantID");
                             int restaurantId = int.Parse(Console.ReadLine());
                             Console.WriteLine("please enter nameFood");
@@ -44,6 +45,7 @@ while (true)
 
                             break;
                         case FoodCategoryEnum.Drink:
+                            ShowListRestuarant();
                             Console.WriteLine("please enter restaurantID");
                              restaurantId = int.Parse(Console.ReadLine());
                             Console.WriteLine("please enter nameFood");
@@ -64,6 +66,7 @@ while (true)
                             }
                             break;
                         case FoodCategoryEnum.Dessert:
+                            ShowListRestuarant();
                             Console.WriteLine("please enter restaurantID");
                              restaurantId = int.Parse(Console.ReadLine());
                             Console.WriteLine("please enter nameFood");

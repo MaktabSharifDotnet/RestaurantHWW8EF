@@ -18,7 +18,7 @@ namespace HWW8WithEF.DataAccess
         public DbSet<Food>  Foods { get; set; }
         public DbSet<MainCourse> MainCourses { get; set; }
         public DbSet<Order> Orders { get; set; }
-        public DbSet<Restaurant> Restaurants { get; set; }
+        public DbSet<Restaurant> Restaurant { get; set; }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             
