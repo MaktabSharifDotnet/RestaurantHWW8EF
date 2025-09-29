@@ -53,7 +53,7 @@ while (true)
                             string nameDrink = Console.ReadLine();
                             Console.WriteLine("please enter price");
                             decimal priceDrink = Convert.ToDecimal(Console.ReadLine());
-                            Console.WriteLine("isVegetarian : 1.true or 2.false");
+                            Console.WriteLine("IsAlcoholic : 1.true or 2.false");
                             string isAlcoholicInput = Console.ReadLine();
                             bool IsAlcoholic = (isAlcoholicInput == "1");
                             try

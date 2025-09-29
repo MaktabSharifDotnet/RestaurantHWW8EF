@@ -12,17 +12,21 @@ namespace HWW8WithEF.Repositories
 {
     public class RestaurantRepository
     {
-        AppDbContext _context = new AppDbContext();
+       
         
         public void AddRestaurant(Restaurant restaurant) 
         {
-          _context.Add(restaurant);
-          _context.SaveChanges();
+            
+        
         }
 
         public List<Restaurant> GetRestaurants()
         {
-            return _context.Restaurant.ToList();
+            using (AppDbContext _context = new AppDbContext())
+            {
+                return _context.Restaurant.ToList();
+            }
+           
         }
         
     }

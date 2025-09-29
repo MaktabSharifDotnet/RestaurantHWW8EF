@@ -10,11 +10,15 @@ namespace HWW8WithEF.Repositories
 {
     public class OrderRepository
     {
-        AppDbContext _context = new AppDbContext();
+        
         public void AddOrder(Order order) 
         {
-           _context.Orders.Add(order);
-           _context.SaveChanges();
+            using(AppDbContext _context = new AppDbContext()) 
+            {
+                _context.Orders.Add(order);
+                _context.SaveChanges();
+            }
+          
 
         }
 

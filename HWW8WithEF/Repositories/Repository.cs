@@ -11,32 +11,55 @@ namespace HWW8WithEF.Repositories
 {
     public class Repository
     {
-        AppDbContext _context = new AppDbContext();
+        
 
         public void AddFood(Food food) 
         {
-          _context.Foods.Add(food);
-          _context.SaveChanges();
+            using(AppDbContext _context = new AppDbContext()) 
+            {
+                _context.Foods.Add(food);
+                _context.SaveChanges();
+            }
+         
         }
 
         public Food? GetFoodByName(string name) 
         {
-            return _context.Foods.FirstOrDefault(f => f.Name == name);
+            using (AppDbContext _context = new AppDbContext()) 
+            {
+                return _context.Foods.FirstOrDefault(f => f.Name == name);
+            }
+                
         }
 
         public List<Food> GetFoodsByIds(List<int> foodIds)
         {
-            return _context.Foods.Where(f => foodIds.Contains(f.Id)).ToList();
+            using (AppDbContext _context = new AppDbContext()) 
+            {
+                return _context.Foods.Where(f => foodIds.Contains(f.Id)).ToList();
+            }
+
+                
         }
 
-        public List<Food> GetFoods() 
+        public List<Food> GetFoods()
         {
-           return _context.Foods.ToList();
+             using (AppDbContext _context = new AppDbContext())
+            {
+                return _context.Foods.ToList();
+            }
+
+            
         }
 
         public List<Food> MenuByRestaurantId(int restaurantId)
         {
-            return _context.Foods.Where(f => f.RestaurantId == restaurantId).ToList();
+            using (AppDbContext _context = new AppDbContext())
+            {
+                return _context.Foods.Where(f => f.RestaurantId == restaurantId).ToList();
+            }
+
+            
         }
 
     }

@@ -13,25 +13,38 @@ namespace HWW8WithEF.Repositories
 
     public class CustomerRepository
     {
-        AppDbContext _context = new AppDbContext();
+        
         public Customer? GetCustomerByPhone(string phone) 
         {
-           return _context.Customers
-                .Include(c=>c.Contact)
-                .FirstOrDefault(c=>c.Contact.Phone == phone);
+            using (AppDbContext _context = new AppDbContext()) 
+            {
+                return _context.Customers
+              .Include(c => c.Contact)
+              .FirstOrDefault(c => c.Contact.Phone == phone);
+            }
+       
         
         }
 
         public void AddCustomer(Customer customer) 
         {
-           _context.Customers .Add(customer);
-            _context.SaveChanges();
+            using (AppDbContext _context = new AppDbContext()) 
+            {
+                _context.Customers.Add(customer);
+                _context.SaveChanges();
+            }
+            
         
         }
 
         public Customer? GetCustomerByCustomerId(int customerId) 
         {
-           return _context.Customers.FirstOrDefault(c=>c.Id==customerId);
+
+            using (AppDbContext _context = new AppDbContext())
+            {
+                return _context.Customers.FirstOrDefault(c => c.Id == customerId);
+            }
+            
         }
 
     }
