@@ -22,7 +22,7 @@ namespace HWW8WithEF.Repositories
 
         public List<Restaurant> GetRestaurants()
         {
-            return _context.Restaurants.ToList();
+            return _context.Restaurant.ToList();
         }
         
     }
